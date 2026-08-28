@@ -12,7 +12,7 @@ services:
       - TZ=Africa/Nairobi
 
     ports:
-      - "8443:443"
+      - "7443:443"
 
     networks:
       - cicd-network
