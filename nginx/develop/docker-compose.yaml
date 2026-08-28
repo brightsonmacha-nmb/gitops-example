@@ -1,0 +1,28 @@
+version: "3.2"
+services:
+  nginx-remote:
+    image: test-registry.nmbtz.com/nginx:1.24.0
+    labels:
+      - "com.docker.compose.service=nginx-remote"
+      - "com.docker.compose.project=nginx-remote"
+
+
+
+    environment:
+      - TZ=Africa/Nairobi
+
+    ports:
+      - "9443:443"
+
+    networks:
+      - cicd-network
+
+    deploy:
+      mode: replicated
+      replicas: 1
+
+
+networks:
+  cicd-network:
+    driver: overlay
+    external: true
